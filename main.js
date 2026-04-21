@@ -89,7 +89,8 @@ const i18n = {
     form_message_ph: "Décrivez votre projet ou opportunité...",
     form_send:       "Envoyer",
 
-    footer_copy: "© 2025 Précieux Fassinou — Tous droits réservés",
+    footer_copy: "© 2026 Précieux Fassinou — Tous droits réservés",
+    cv_download: "Télécharger CV",
   },
 
   en: {
@@ -174,7 +175,8 @@ const i18n = {
     form_message_ph: "Describe your project or opportunity...",
     form_send:       "Send message",
 
-    footer_copy: "© 2025 Précieux Fassinou — All rights reserved",
+    footer_copy: "© 2026 Précieux Fassinou — All rights reserved",
+    cv_download: "Download CV",
   }
 };
 
