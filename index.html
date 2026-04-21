@@ -1,1137 +1,533 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precieux FASSINOU</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Précieux Fassinou — Développeur Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-      :root {
-        --primary: #6366f1;
-        --primary-dark: #4f46e5;
-      }
+  <!-- ORBS -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: #0f172a;
-        color: #e2e8f0;
-        overflow-x: hidden;
-      }
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a class="nav-logo" href="#home">Précieux<span>.</span></a>
 
-      .glass-card {
-        background: rgba(15, 23, 42, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-      }
+    <ul class="nav-links">
+      <li><a href="#home"     data-i18n="nav_home">Accueil</a></li>
+      <li><a href="#about"    data-i18n="nav_about">À propos</a></li>
+      <li><a href="#skills"   data-i18n="nav_skills">Compétences</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
+      <li><a href="#contact"  data-i18n="nav_contact">Contact</a></li>
+    </ul>
 
-      .glass-card-light {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
+    <div class="nav-right">
+      <div id="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-mobile-btn" id="nav-open" aria-label="Ouvrir le menu">
+        <!-- hamburger SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
 
-      .primary-gradient {
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
-      }
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-drawer">
+    <button id="mobile-close" aria-label="Fermer le menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <a href="#home"     data-i18n="nav_home">Accueil</a>
+    <a href="#about"    data-i18n="nav_about">À propos</a>
+    <a href="#skills"   data-i18n="nav_skills">Compétences</a>
+    <a href="#projects" data-i18n="nav_projects">Projets</a>
+    <a href="#contact"  data-i18n="nav_contact">Contact</a>
+    <div id="lang-switcher" style="margin-top:16px">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
 
-      .text-primary {
-        color: var(--primary);
-      }
+  <!-- ═══ HERO ═══ -->
+  <section id="home">
+    <div class="hero-inner">
 
-      .bg-primary {
-        background-color: var(--primary);
-      }
+      <div class="fade-in">
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span data-i18n="hero_status">Disponible pour des opportunités</span>
+        </div>
+        <h1 class="hero-title">Précieux<br><span class="accent">Fassinou</span></h1>
+        <p class="hero-subtitle" data-i18n="hero_sub">
+          Développeur web fullstack spécialisé en Django, Laravel et Node.js. En Master 1 Génie Logiciel à l'ISI Dakar.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <!-- eye icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span data-i18n="hero_btn_projects">Voir les projets</span>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <!-- send icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span data-i18n="hero_btn_contact">Me contacter</span>
+          </a>
+        </div>
+      </div>
 
-      .border-primary {
-        border-color: var(--primary);
-      }
+      <div class="hero-card fade-in" style="transition-delay:.15s">
+        <div class="hc-header">
+          <div class="hc-dot red"></div>
+          <div class="hc-dot yellow"></div>
+          <div class="hc-dot green"></div>
+          <span class="hc-title">developer.profile</span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-num">4+</div>
+            <div class="stat-label" data-i18n="hero_stat1_label">Ans d'expérience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label" data-i18n="hero_stat2_label">Stages réalisés</div>
+          </div>
+          <div class="stat-item full">
+            <div class="stat-label" data-i18n="hero_stack_label" style="margin-bottom:10px">Stack principal</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      .hover\:bg-primary:hover {
-        background-color: var(--primary);
-      }
+    </div>
+  </section>
 
-      .tech-bg {
-        background-image: radial-gradient(
-            circle at 25% 25%,
-            rgba(99, 102, 241, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 75% 75%,
-            rgba(99, 102, 241, 0.1) 0%,
-            transparent 50%
-          );
-        background-size: 100% 100%;
-      }
+  <hr class="divider">
 
-      .nav-link::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: var(--primary);
-        transition: width 0.3s;
-      }
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label fade-in" data-i18n="about_label">Qui je suis</p>
+      <h2 class="section-title fade-in" data-i18n="about_title">À propos de moi</h2>
+      <p class="section-desc fade-in" data-i18n="about_desc">Développeur passionné, basé à Dakar, Sénégal.</p>
 
-      .nav-link:hover::after {
-        width: 100%;
-      }
+      <div class="about-grid">
 
-      .hexagon {
-        clip-path: polygon(
-          50% 0%,
-          100% 25%,
-          100% 75%,
-          50% 100%,
-          0% 75%,
-          0% 25%
-        );
-      }
+        <div class="fade-in">
+          <div class="about-tag" data-i18n="about_tag">Profil</div>
+          <div class="about-name">Précieux Fassinou</div>
+          <div class="about-role" data-i18n="about_role">Développeur Web — ISI Dakar, M1 Génie Logiciel</div>
+          <ul class="info-list">
+            <li>
+              <span class="il-label" data-i18n="il_location">Localisation</span>
+              <span class="il-val">Dakar, Sénégal</span>
+            </li>
+            <li>
+              <span class="il-label" data-i18n="il_email">Email</span>
+              <span class="il-val"><a href="mailto:fassinouandre@gmail.com">fassinouandre@gmail.com</a></span>
+            </li>
+            <li>
+              <span class="il-label" data-i18n="il_phone">Téléphone</span>
+              <span class="il-val">+221 78 172 88 74</span>
+            </li>
+            <li>
+              <span class="il-label" data-i18n="il_languages">Langues</span>
+              <span class="il-val" data-i18n="il_lang_val">Français (courant), Anglais (intermédiaire), Fon, Idatcha</span>
+            </li>
+            <li>
+              <span class="il-label" data-i18n="il_edu">Formation</span>
+              <span class="il-val" data-i18n="il_edu_val">Bachelor — EPITECH Bénin (2024)<br>M1 Génie Logiciel — ISI Dakar (2025, en cours)</span>
+            </li>
+          </ul>
+        </div>
 
-      .skill-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
+        <div class="fade-in" style="transition-delay:.1s">
+          <p class="about-bio" data-i18n="about_bio">
+            Je suis un <strong>développeur web fullstack</strong> avec une expérience concrète en développement frontend/backend, gestion de bases de données SQL/NoSQL et architecture API.
+          </p>
 
-      .project-card:hover .project-overlay {
-        opacity: 1;
-        transform: translateY(0);
-      }
+          <div class="timeline-header" data-i18n="tl_title">Parcours professionnel</div>
+          <div class="tl-items">
 
-      .project-overlay {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-      }
+            <div class="tl-item fade-in">
+              <div class="tl-date">Mars – Juil. 2025</div>
+              <div class="tl-content">
+                <div class="tl-role" data-i18n="tl1_role">Développeur Frontend</div>
+                <div class="tl-company">Kle Family</div>
+                <div class="tl-desc" data-i18n="tl1_desc">Conception et développement du site vitrine de l'entreprise de A à Z.</div>
+              </div>
+            </div>
 
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -32px;
-        top: 0;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: var(--primary);
-        border: 3px solid #1e293b;
-      }
+            <div class="tl-item fade-in">
+              <div class="tl-date">Mars – Août 2024</div>
+              <div class="tl-content">
+                <div class="tl-role" data-i18n="tl2_role">Développeur Fullstack</div>
+                <div class="tl-company">Home and Business Services</div>
+                <div class="tl-desc" data-i18n="tl2_desc">Intégration fullstack d'une plateforme de gestion immobilière.</div>
+              </div>
+            </div>
 
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: -24px;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background: #334155;
-      }
+            <div class="tl-item fade-in">
+              <div class="tl-date">Oct. 2023 – Jan. 2024</div>
+              <div class="tl-content">
+                <div class="tl-role" data-i18n="tl3_role">Stagiaire Développement Web</div>
+                <div class="tl-company">Bensoft</div>
+                <div class="tl-desc" data-i18n="tl3_desc">Fondamentaux du développement web et conception de bases de données SQL.</div>
+              </div>
+            </div>
 
-      .floating {
-        animation: floating 6s ease-in-out infinite;
-      }
+            <div class="tl-item fade-in">
+              <div class="tl-date">Juil. – Nov. 2021</div>
+              <div class="tl-content">
+                <div class="tl-role" data-i18n="tl4_role">Développeur Web & Assistant Marketing</div>
+                <div class="tl-company">La Vedette Media</div>
+                <div class="tl-desc" data-i18n="tl4_desc">NoSQL, initiation Django, assistance marketing réseaux sociaux.</div>
+              </div>
+            </div>
 
-      @keyframes floating {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-      }
+          </div>
+        </div>
 
-      .typewriter {
-        overflow: hidden;
-        border-right: 2px solid var(--primary);
-        white-space: nowrap;
-        animation: typing 3.5s steps(30, end),
-          blink-caret 0.75s step-end infinite;
-      }
+      </div>
+    </div>
+  </section>
 
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
+  <hr class="divider">
 
-      @keyframes blink-caret {
-        from,
-        to {
-          border-color: transparent;
-        }
-        50% {
-          border-color: var(--primary);
-        }
-      }
-    </style>
-  </head>
-  <body class="min-h-screen tech-bg">
-    <!-- Header -->
-    <header class="fixed w-full z-50">
-      <nav class="glass-card py-4 px-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-          <div class="flex items-center space-x-2">
-            <span class="text-2xl font-bold text-white">Precieux FASSINOU</span>
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label fade-in" data-i18n="skills_label">Ce que je fais</p>
+      <h2 class="section-title fade-in" data-i18n="skills_title">Compétences</h2>
+      <p class="section-desc fade-in" data-i18n="skills_desc">Un profil fullstack couvrant frontend, backend, bases de données et UI/UX.</p>
+
+      <div class="skills-grid">
+
+        <!-- Backend -->
+        <div class="skill-card fade-in">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <div class="skill-name" data-i18n="sk1_name">Backend</div>
+          <div class="skill-desc" data-i18n="sk1_desc">Architecture et développement d'APIs robustes avec Django REST Framework, Laravel et Node.js.</div>
+          <div class="skill-bars">
+            <div><div class="bar-label">Django / Django REST</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
+            <div><div class="bar-label">Laravel / PHP</div><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div></div>
+            <div><div class="bar-label">Node.js / Express</div><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="skill-card fade-in" style="transition-delay:.05s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="skill-name" data-i18n="sk2_name">Frontend</div>
+          <div class="skill-desc" data-i18n="sk2_desc">Interfaces modernes et responsives avec React et Bootstrap.</div>
+          <div class="skill-bars">
+            <div><div class="bar-label">React</div><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+            <div><div class="bar-label">Bootstrap / HTML / CSS</div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-card fade-in" style="transition-delay:.1s">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+          </div>
+          <div class="skill-name" data-i18n="sk3_name">Bases de données</div>
+          <div class="skill-desc" data-i18n="sk3_desc">Conception, optimisation et gestion SQL/NoSQL.</div>
+          <div class="skill-bars">
+            <div><div class="bar-label">PostgreSQL / MySQL</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div></div>
+            <div><div class="bar-label">NoSQL (MongoDB)</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech bubbles — SVG inline, pas de Font Awesome -->
+      <p class="section-label fade-in" style="margin-top:48px" data-i18n="tech_label">Technologies maîtrisées</p>
+      <div class="tech-row fade-in">
+
+        <!-- Python -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.5 2 6 3.5 6 5.5V9h6v1H4.5C2.5 10 1 11.5 1 13.5s1.5 3.5 3.5 3.5H6v2.5C6 21.5 8.5 23 12 23s6-1.5 6-3.5V18h-6v-1h7.5c2 0 3.5-1.5 3.5-3.5S21.5 10 19.5 10H18V7.5C18 3.5 15.5 2 12 2z"/>
+          </svg>
+          <span>Python</span>
+        </div>
+
+        <!-- Laravel — flame icon -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c0 0-5 4-5 10a7 7 0 0 0 14 0C21 6 16 2 12 2z"/>
+            <path d="M12 12c0 0-2 2-2 4a4 4 0 0 0 8 0c0-2-2-4-2-4"/>
+          </svg>
+          <span>Laravel</span>
+        </div>
+
+        <!-- Node.js — hexagon -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 22 7 22 17 12 22 2 17 2 7"/>
+            <polyline points="12 22 12 12"/><line x1="22" y1="7" x2="12" y2="12"/><line x1="2" y1="7" x2="12" y2="12"/>
+          </svg>
+          <span>Node.js</span>
+        </div>
+
+        <!-- React — atom -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="2"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke-dasharray="3 3"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>
+          </svg>
+          <span>React</span>
+        </div>
+
+        <!-- Bootstrap — grid icon -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          <span>Bootstrap</span>
+        </div>
+
+        <!-- PostgreSQL — database -->
+        <div class="tech-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+          <span>PostgreSQL</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label fade-in" data-i18n="proj_label">Réalisations</p>
+      <h2 class="section-title fade-in" data-i18n="proj_title">Projets réels</h2>
+      <p class="section-desc fade-in" data-i18n="proj_desc">Projets réalisés lors de stages et en développement personnel.</p>
+
+      <div class="projects-grid">
+
+        <!-- Projet featured -->
+        <div class="proj-card featured fade-in">
+          <div class="proj-img">
+            <div class="proj-img-inner" style="background:linear-gradient(135deg,#0d1117,#131920)">
+              <!-- house SVG -->
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(63,232,192,0.4)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-type" data-i18n="p1_type">Projet de stage — 2024</div>
+            <div class="proj-title" data-i18n="p1_title">Plateforme de gestion immobilière</div>
+            <div class="proj-desc" data-i18n="p1_desc">Application web fullstack pour la gestion de biens immobiliers, de clients et de contrats.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Laravel</span>
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">MySQL</span>
+              <span class="proj-tag">Bootstrap</span>
+              <span class="proj-tag">XAMPP</span>
+            </div>
+            <div class="proj-links">
+              <span class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="p1_lock">Privé — projet client</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="proj-card fade-in">
+          <div class="proj-img">
+            <div class="proj-img-inner" style="background:linear-gradient(135deg,#0a1628,#112240)">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(79,124,255,0.4)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-type" data-i18n="p2_type">Projet de stage — 2025</div>
+            <div class="proj-title" data-i18n="p2_title">Site vitrine Kle Family</div>
+            <div class="proj-desc" data-i18n="p2_desc">Conception et développement du site vitrine complet de Kle Family.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Laravel</span>
+              <span class="proj-tag">PHP</span>
+              <span class="proj-tag">Bootstrap</span>
+              <span class="proj-tag">CSS</span>
+            </div>
+            <div class="proj-links">
+              <span class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="p2_lock">Projet client</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="proj-card fade-in" style="transition-delay:.05s">
+          <div class="proj-img">
+            <div class="proj-img-inner" style="background:linear-gradient(135deg,#0d1a0d,#132613)">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(63,232,192,0.35)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-type" data-i18n="p3_type">Projet personnel — 2025</div>
+            <div class="proj-title" data-i18n="p3_title">Chatbot IA Support Client</div>
+            <div class="proj-desc" data-i18n="p3_desc">Chatbot IA fullstack avec NLP hybride, intégration Google Gemini, WebSocket et JWT.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">Express</span>
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">PostgreSQL</span>
+              <span class="proj-tag">Socket.io</span>
+              <span class="proj-tag">Gemini AI</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label fade-in" data-i18n="contact_label">Me contacter</p>
+      <h2 class="section-title fade-in" data-i18n="contact_title">Contact</h2>
+      <p class="section-desc fade-in" data-i18n="contact_desc">Un projet ou une opportunité ? Parlons-en.</p>
+
+      <div class="contact-grid">
+
+        <div class="contact-info fade-in">
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-i18n="ci_email">Email</div>
+              <div class="ci-val"><a href="mailto:fassinouandre@gmail.com">fassinouandre@gmail.com</a></div>
+            </div>
           </div>
 
-          <div class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link text-gray-300 font-medium">Home</a>
-            <a href="#about" class="nav-link text-gray-300 font-medium"
-              >About</a
-            >
-            <a href="#skills" class="nav-link text-gray-300 font-medium"
-              >Skills</a
-            >
-            <a href="#projects" class="nav-link text-gray-300 font-medium"
-              >Projects</a
-            >
-            <a href="#contact" class="nav-link text-gray-300 font-medium"
-              >Contact</a
-            >
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.27 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-i18n="ci_phone">Téléphone</div>
+              <div class="ci-val">+221 78 172 88 74</div>
+            </div>
           </div>
 
-          <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center">
-            <button
-              id="mobile-menu-button"
-              class="text-white focus:outline-none"
-            >
-              <i class="fas fa-bars text-2xl"></i>
+          <div class="ci-item">
+            <div class="ci-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-i18n="ci_location">Localisation</div>
+              <div class="ci-val">Dakar, Sénégal</div>
+            </div>
+          </div>
+
+          <div class="avail-card">
+            <div class="avail-dot"></div>
+            <div class="avail-text" data-i18n="avail_text">Disponible pour stages et missions freelance</div>
+          </div>
+        </div>
+
+        <div class="fade-in" style="transition-delay:.1s">
+          <div class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name" data-i18n="form_name">Nom complet</label>
+                <input type="text" id="c-name" data-i18n="form_name_ph" placeholder="Votre nom">
+              </div>
+              <div class="form-group">
+                <label for="c-email" data-i18n="form_email">Email</label>
+                <input type="email" id="c-email" data-i18n="form_email_ph" placeholder="votre@email.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-subject" data-i18n="form_subject">Objet</label>
+              <input type="text" id="c-subject" data-i18n="form_subject_ph" placeholder="De quoi s'agit-il ?">
+            </div>
+            <div class="form-group">
+              <label for="c-message" data-i18n="form_message">Message</label>
+              <textarea id="c-message" rows="5" data-i18n="form_message_ph" placeholder="Décrivez votre projet ou opportunité..."></textarea>
+            </div>
+            <button class="btn btn-primary" style="align-self:flex-start">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span data-i18n="form_send">Envoyer</span>
             </button>
           </div>
         </div>
-      </nav>
 
-      <!-- Mobile menu -->
-      <div
-        id="mobile-menu"
-        class="fixed inset-y-0 right-0 w-64 bg-gray-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
-      >
-        <div class="flex justify-end p-4">
-          <button
-            id="mobile-close-button"
-            class="text-white focus:outline-none"
-          >
-            <i class="fas fa-times text-2xl"></i>
-          </button>
-        </div>
-        <nav class="flex flex-col items-center space-y-8 py-8">
-          <a href="#home" class="nav-link text-gray-300 font-medium text-xl"
-            >Home</a
-          >
-          <a href="#about" class="nav-link text-gray-300 font-medium text-xl"
-            >About</a
-          >
-          <a href="#skills" class="nav-link text-gray-300 font-medium text-xl"
-            >Skills</a
-          >
-          <a href="#projects" class="nav-link text-gray-300 font-medium text-xl"
-            >Projects</a
-          >
-          <a href="#contact" class="nav-link text-gray-300 font-medium text-xl"
-            >Contact</a
-          >
-        </nav>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20 pb-16 px-6">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6 text-center md:text-left">
-          <p class="text-primary font-medium">Hello, I'm</p>
-          <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-          >
-            Precieux FASSINOU
-          </h1>
-          <div
-            class="typewriter text-2xl md:text-3xl text-gray-300 mb-6 mx-auto md:mx-0"
-          >
-            Web Developer
-          </div>
-          <p class="text-lg text-gray-400">
-            I create modern, high-performance web experiences using the latest
-            technologies. Passionate about design and clean code.
-          </p>
-          <div
-            class="flex flex-wrap justify-center md:justify-start gap-4 pt-4"
-          >
-            <a
-              href="#contact"
-              class="px-8 py-3 rounded-full primary-gradient text-white font-medium shadow-lg hover:shadow-xl transition duration-300 flex items-center"
-            >
-              <span>Contact me</span>
-              <i class="fas fa-paper-plane ml-2"></i>
-            </a>
-            <a
-              href="#projects"
-              class="px-8 py-3 rounded-full bg-transparent text-white border border-gray-600 font-medium hover:border-primary transition duration-300 flex items-center"
-            >
-              <i class="fas fa-eye mr-2"></i>
-              <span>My projects</span>
-            </a>
-          </div>
-        </div>
+  <footer>
+    <div class="footer-logo">Précieux<span>.</span></div>
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 Précieux Fassinou — Tous droits réservés</div>
+  </footer>
 
-        <div class="relative hidden md:block">
-          <div class="glass-card-light rounded-2xl p-4 floating">
-            <img
-              src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Développeur au travail"
-              class="w-full h-auto rounded-xl"
-            />
-          </div>
-
-          <div
-            class="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl shadow-lg"
-          >
-            <div class="bg-gray-900/80 p-3 rounded-xl w-48">
-              <div class="flex items-center space-x-2">
-                <div
-                  class="w-8 h-8 rounded-full bg-green-900/50 flex items-center justify-center"
-                >
-                  <i class="fas fa-check-circle text-green-400 text-sm"></i>
-                </div>
-                <div>
-                  <p class="font-bold text-xs">Available</p>
-                  <p class="text-xs text-gray-400">For new projects</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="absolute -top-6 -right-6 glass-card p-4 rounded-2xl shadow-lg"
-          >
-            <div class="bg-gray-900/80 p-3 rounded-xl w-48">
-              <div class="flex items-center space-x-2">
-                <div
-                  class="w-8 h-8 rounded-full bg-blue-900/50 flex items-center justify-center"
-                >
-                  <i class="fas fa-code text-blue-400 text-sm"></i>
-                </div>
-                <div>
-                  <p class="font-bold text-xs">For clean</p>
-                  <p class="text-xs text-gray-400">and organized code</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-0 px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            About me
-          </h2>
-          <div class="w-20 h-1 primary-gradient mx-auto mb-6"></div>
-          <p class="text-gray-400">
-            Passionate about web development for over six years, I put my
-            expertise to work for your digital projects.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="relative">
-            <div class="glass-card-light rounded-2xl overflow-hidden">
-              <img
-                src="withel_cover.jpeg"
-                alt="Alexandre Martin"
-                class="w-auto h-[700px]"
-              />
-            </div>
-
-            <div
-              class="absolute -bottom-6 -right-6 glass-card p-2 rounded-full"
-            >
-              <div class="bg-gray-900/80 p-2 rounded-full">
-                <div
-                  class="w-14 h-14 rounded-full primary-gradient flex items-center justify-center"
-                >
-                  <i class="fas fa-laptop-code text-white text-xl"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h3 class="text-2xl font-bold text-white">Web Developer</h3>
-            <p class="text-gray-400">
-              After studying computer science and several years of experience in
-              agencies and as a freelancer, I acquired solid expertise in
-              creating modern and efficient applications and websites.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div class="flex items-start space-x-3">
-                <i class="fas fa-chevron-right text-primary mt-1"></i>
-                <div>
-                  <p class="font-bold text-white">Name :</p>
-                  <p class="text-gray-400">Precieux FASSINOU</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <i class="fas fa-chevron-right text-primary mt-1"></i>
-                <div>
-                  <p class="font-bold text-white">Email :</p>
-                  <p class="text-gray-400">precieuxfassinou@gmail.com</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <i class="fas fa-chevron-right text-primary mt-1"></i>
-                <div>
-                  <p class="font-bold text-white">Experience :</p>
-                  <p class="text-gray-400">3+ years</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <i class="fas fa-chevron-right text-primary mt-1"></i>
-                <div>
-                  <p class="font-bold text-white">Phone number:</p>
-                  <p class="text-gray-400">+229 01 63 81 40 50</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-6">
-              <p class="text-gray-400 mb-4">
-                I specialize in the following technologies :
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 rounded-full bg-gray-800 text-sm text-gray-300"
-                  >Laravel</span
-                >
-                <span
-                  class="px-3 py-1 rounded-full bg-gray-800 text-sm text-gray-300"
-                  >Dandjo & Django Rest</span
-                >
-                <span
-                  class="px-3 py-1 rounded-full bg-gray-800 text-sm text-gray-300"
-                  >Next.js</span
-                >
-                <span
-                  class="px-3 py-1 rounded-full bg-gray-800 text-sm text-gray-300"
-                  >Bootstrap</span
-                >
-                <span
-                  class="px-3 py-1 rounded-full bg-gray-800 text-sm text-gray-300"
-                  >Postgresql</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Experience Timeline -->
-        <div class="mt-20">
-          <h3 class="text-2xl font-bold text-white mb-8 text-center">
-            My professional journey
-          </h3>
-
-          <div class="relative max-w-3xl mx-auto">
-            <div class="space-y-8 timeline">
-              <!-- Experience 1 -->
-              <div class="relative pl-12 timeline-item">
-                <div class="glass-card-light p-6 rounded-xl">
-                  <div
-                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2"
-                  >
-                    <h4 class="font-bold text-white">Frontend Developer</h4>
-                    <span
-                      class="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mt-2 sm:mt-0"
-                      >2025 - Présent</span
-                    >
-                  </div>
-                  <p class="text-sm text-primary mb-2">Kle Family</p>
-                  <p class="text-gray-400 text-sm">
-                    Development of a showcase website with Laravel and PHP for a
-                    professional and technical training center.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Experience 2 -->
-              <div class="relative pl-12 timeline-item">
-                <div class="glass-card-light p-6 rounded-xl">
-                  <div
-                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2"
-                  >
-                    <h4 class="font-bold text-white">Full Stack Developer</h4>
-                    <span
-                      class="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mt-2 sm:mt-0"
-                      >2024</span
-                    >
-                  </div>
-                  <p class="text-sm text-primary mb-2">
-                    Home and Business Services
-                  </p>
-                  <p class="text-gray-400 text-sm">
-                    Implementation of the Laravel backend of a real estate
-                    management web application, including frontend integration
-                    and MySQL database management.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Experience 3 -->
-              <div class="relative pl-12 timeline-item">
-                <div class="glass-card-light p-6 rounded-xl">
-                  <div
-                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2"
-                  >
-                    <h4 class="font-bold text-white">Junior web developer</h4>
-                    <span
-                      class="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mt-2 sm:mt-0"
-                      >2021</span
-                    >
-                  </div>
-                  <p class="text-sm text-primary mb-2">La Vedette Media</p>
-                  <p class="text-gray-400 text-sm">
-                    Web application development with Django and Django Rest.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 bg-gray-900/50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            My skills
-          </h2>
-          <div class="w-20 h-1 primary-gradient mx-auto mb-6"></div>
-          <p class="text-gray-400">
-            A complete range of technical and creative skills to meet all your
-            digital needs.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Skill 1 -->
-          <div
-            class="glass-card-light p-8 rounded-2xl hover:shadow-xl transition duration-300 skill-card"
-          >
-            <div
-              class="w-14 h-14 rounded-xl primary-gradient flex items-center justify-center mb-6"
-            >
-              <i class="fas fa-code text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Frontend Development
-            </h3>
-            <p class="text-gray-400">
-              Creating modern, responsive user interfaces with React, Bootstrap,
-              and the latest CSS technologies.
-            </p>
-            <div class="mt-6">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm text-gray-300">React</span>
-                <span class="text-sm text-gray-400"></span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2">
-                <div
-                  class="bg-primary h-2 rounded-full"
-                  style="width: 95%"
-                ></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm text-gray-300">Bootstrap</span>
-                <span class="text-sm text-gray-400"></span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2">
-                <div
-                  class="bg-primary h-2 rounded-full"
-                  style="width: 100%"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Skill 2 -->
-          <div
-            class="glass-card-light p-8 rounded-2xl hover:shadow-xl transition duration-300 skill-card"
-          >
-            <div
-              class="w-14 h-14 rounded-xl primary-gradient flex items-center justify-center mb-6"
-            >
-              <i class="fas fa-server text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">
-              Backend Development
-            </h3>
-            <p class="text-gray-400">
-              Architecture and development of robust and secure APIs using
-              Laravel, Django, Python, and modern databases.
-            </p>
-            <div class="mt-6">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm text-gray-300">Laravel</span>
-                <span class="text-sm text-gray-400"></span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2">
-                <div
-                  class="bg-primary h-2 rounded-full"
-                  style="width: 100%"
-                ></div>
-              </div>
-            </div>
-            <div class="mt-4">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm text-gray-300">MySQL</span>
-                <span class="text-sm text-gray-400"></span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2">
-                <div
-                  class="bg-primary h-2 rounded-full"
-                  style="width: 90%"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Skill 3 -->
-          <div
-            class="glass-card-light p-8 rounded-2xl hover:shadow-xl transition duration-300 skill-card"
-          >
-            <div
-              class="w-14 h-14 rounded-xl primary-gradient flex items-center justify-center mb-6"
-            >
-              <i class="fas fa-paint-brush text-white text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">UI/UX Design</h3>
-            <p class="text-gray-400">
-              Designing intuitive and aesthetic interfaces focused on user
-              experience with Figma.
-            </p>
-            <div class="mt-6">
-              <div class="flex justify-between mb-1">
-                <span class="text-sm text-gray-300">Figma</span>
-                <span class="text-sm text-gray-400"></span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-2">
-                <div
-                  class="bg-primary h-2 rounded-full"
-                  style="width: 92%"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technologies -->
-        <div class="mt-16">
-          <h3 class="text-2xl font-bold text-white mb-8 text-center">
-            Mastered technologies
-          </h3>
-
-          <div class="glass-card-light rounded-2xl p-8 ">
-            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
-              <!-- Tech 1 -->
-              <div class="flex flex-col items-center group">
-                <div
-                  class="w-16 h-16 hexagon bg-gray-800 flex items-center justify-center group-hover:bg-primary transition duration-300"
-                >
-                  <i class="fab fa-bootstrap text-3xl text-white"></i>
-                </div>
-                <span class="mt-2 text-sm text-gray-300">Bootstrap</span>
-              </div>
-
-              <!-- Tech 2 -->
-
-              <!-- Tech 3 -->
-              <div class="flex flex-col items-center group">
-                <div
-                  class="w-16 h-16 hexagon bg-gray-800 flex items-center justify-center group-hover:bg-primary transition duration-300"
-                >
-                  <i class="fab fa-node-js text-3xl text-white"></i>
-                </div>
-                <span class="mt-2 text-sm text-gray-300">Node.js</span>
-              </div>
-
-              <!-- Tech 4 -->
-              <div class="flex flex-col items-center group">
-                <div
-                  class="w-16 h-16 hexagon bg-gray-800 flex items-center justify-center group-hover:bg-primary transition duration-300"
-                >
-                  <i class="fab fa-laravel text-3xl text-white"></i>
-                </div>
-                <span class="mt-2 text-sm text-gray-300">Laravel</span>
-              </div>
-
-              <!-- Tech 5 -->
-              <div class="flex flex-col items-center group">
-                <div
-                  class="w-16 h-16 hexagon bg-gray-800 flex items-center justify-center group-hover:bg-primary transition duration-300"
-                >
-                  <i class="fab fa-python text-3xl text-white"></i>
-                </div>
-                <span class="mt-2 text-sm text-gray-300">Python</span>
-              </div>
-
-              <!-- Tech 6 -->
-              <div class="flex flex-col items-center group">
-                <div
-                  class="w-16 h-16 hexagon bg-gray-800 flex items-center justify-center group-hover:bg-primary transition duration-300"
-                >
-                  <img
-                    src="https://cdn.worldvectorlogo.com/logos/django.svg"
-                    class="w-8 h-8"
-                    alt="TypeScript"
-                  />
-                </div>
-                <span class="mt-2 text-sm text-gray-300">Django</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            My recent projects
-          </h2>
-          <div class="w-20 h-1 primary-gradient mx-auto mb-6"></div>
-          <p class="text-gray-400">
-            A selection of my most significant achievements for various clients.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1 -->
-          <div class="relative project-card rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Tableau de bord analytique"
-              class="w-full h-64 object-cover"
-            />
-            <div
-              class="project-overlay absolute inset-0 bg-gray-900/90 p-6 flex flex-col justify-end"
-            >
-              <span class="text-primary text-sm font-medium"
-                >Application Web</span
-              >
-              <h3 class="text-xl font-bold text-white mb-2">
-                Tableau de bord analytique
-              </h3>
-              <p class="text-gray-300 text-sm mb-4">
-                Solution complète de visualisation de données pour une startup
-                FinTech.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >React</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >D3.js</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Node.js</span
-                >
-              </div>
-              <div class="mt-4 flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fas fa-link"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="relative project-card rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Plateforme e-commerce"
-              class="w-full h-64 object-cover"
-            />
-            <div
-              class="project-overlay absolute inset-0 bg-gray-900/90 p-6 flex flex-col justify-end"
-            >
-              <span class="text-primary text-sm font-medium">E-commerce</span>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Boutique en ligne premium
-              </h3>
-              <p class="text-gray-300 text-sm mb-4">
-                Plateforme e-commerce sur mesure pour une marque de luxe avec
-                paiements sécurisés.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Vue.js</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Laravel</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Stripe</span
-                >
-              </div>
-              <div class="mt-4 flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fas fa-link"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="relative project-card rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Application mobile"
-              class="w-full h-64 object-cover"
-            />
-            <div
-              class="project-overlay absolute inset-0 bg-gray-900/90 p-6 flex flex-col justify-end"
-            >
-              <span class="text-primary text-sm font-medium">Mobile</span>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Application de fitness
-              </h3>
-              <p class="text-gray-300 text-sm mb-4">
-                Application mobile cross-platform avec suivi d'activité et
-                coaching personnalisé.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >React Native</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Firebase</span
-                >
-                <span
-                  class="px-2 py-1 rounded-full bg-gray-800 text-xs text-gray-300"
-                  >Redux</span
-                >
-              </div>
-              <div class="mt-4 flex space-x-4">
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fas fa-link"></i>
-                </a>
-                <a
-                  href="#"
-                  class="text-gray-300 hover:text-primary transition duration-300"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gray-900/50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-            Contact me
-          </h2>
-          <div class="w-20 h-1 primary-gradient mx-auto mb-6"></div>
-          <p class="text-gray-400">
-            Do you have a project in mind? Let's discuss it and see how I can
-            help you make it happen.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div class="space-y-8">
-            <div class="glass-card-light p-8 rounded-2xl">
-              <h3 class="text-xl font-bold text-white mb-6">
-                Contact information
-              </h3>
-
-              <div class="space-y-6">
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center"
-                  >
-                    <i class="fas fa-envelope text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-white">Email</h4>
-                    <p class="text-gray-400">precieuxfassinou@gmail.com</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center"
-                  >
-                    <i class="fas fa-phone-alt text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-white">Phone Number</h4>
-                    <p class="text-gray-400">+229 01 63 81 40 50</p>
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center"
-                  >
-                    <i class="fas fa-map-marker-alt text-primary"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-white">Address</h4>
-                    <p class="text-gray-400">Cotonou, Benin</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="glass-card-light p-8 rounded-2xl">
-              <h3 class="text-xl font-bold text-white mb-6">Availability</h3>
-              <p class="text-gray-400 mb-6">
-                I am currently available for freelance assignments and
-                interesting collaborations.
-              </p>
-              <div class="flex items-center space-x-3">
-                <div
-                  class="w-3 h-3 rounded-full bg-green-400 animate-pulse"
-                ></div>
-                <span class="text-green-400 font-medium">Available now</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-card-light p-8 rounded-2xl">
-            <h3 class="text-xl font-bold text-white mb-6">Send me a message</h3>
-
-            <form class="space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    for="name"
-                    class="block text-sm font-medium text-gray-300 mb-2"
-                    >Full name</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:outline-none text-white transition duration-300"
-                    placeholder="Name"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="email"
-                    class="block text-sm font-medium text-gray-300 mb-2"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:outline-none text-white transition duration-300"
-                    placeholder="Your mail Address"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  for="subject"
-                  class="block text-sm font-medium text-gray-300 mb-2"
-                  >Subject</label
-                >
-                <input
-                  type="text"
-                  id="subject"
-                  class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:outline-none text-white transition duration-300"
-                  placeholder="Subject"
-                />
-              </div>
-
-              <div>
-                <label
-                  for="message"
-                  class="block text-sm font-medium text-gray-300 mb-2"
-                  >Message</label
-                >
-                <textarea
-                  id="message"
-                  rows="5"
-                  class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary focus:outline-none text-white transition duration-300"
-                  placeholder="Describe your project"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full px-6 py-3 rounded-full primary-gradient text-white font-medium shadow-lg hover:shadow-xl transition duration-300 flex items-center justify-center"
-              >
-                <span>Send message</span>
-                <i class="fas fa-paper-plane ml-2"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
-        <div class="w-full px-6 max-w-6xl mx-auto">
-          <div class="flex flex-col md:flex-row md:space-x-32 space-y-12 md:space-y-0 justify-center items-center md:items-start">
-            <!-- Colonne 1 -->
-            <div class="text-center md:text-left">
-              <div class="flex items-center justify-center md:justify-start space-x-2 mb-6">
-                <span class="text-2xl font-bold text-white">Precieux FASSINOU</span>
-              </div>
-              <p>© 2024 All rights reserved.</p>
-            </div>
-      
-            <!-- Colonne 2 -->
-            <div class="text-center md:text-left">
-              <h3 class="text-white font-bold text-lg mb-6">Quick links</h3>
-              <ul class="space-y-3">
-                <li><a href="#home" class="hover:text-primary transition duration-300">Home</a></li>
-                <li><a href="#about" class="hover:text-primary transition duration-300">About</a></li>
-                <li><a href="#skills" class="hover:text-primary transition duration-300">Skills</a></li>
-                <li><a href="#projects" class="hover:text-primary transition duration-300">Projects</a></li>
-                <li><a href="#contact" class="hover:text-primary transition duration-300">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-sm text-gray-500">
-            Designed with <i class="fas fa-heart text-primary"></i> and lots of code.
-          </p>
-        </div>
-      </footer>
-      
-      
-      
-      
-
-    <script>
-      // Animation for elements when they come into view
-      document.addEventListener("DOMContentLoaded", function () {
-        const animateElements = document.querySelectorAll(
-          ".project-card, .skill-card, .timeline-item"
-        );
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        animateElements.forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          el.style.transition = "all 0.5s ease";
-          observer.observe(el);
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-              behavior: "smooth",
-            });
-          });
-        });
-
-        // Toggle mobile menu
-        const mobileMenuButton = document.querySelector("#mobile-menu-button");
-        const mobileCloseButton = document.querySelector(
-          "#mobile-close-button"
-        );
-        const mobileMenu = document.querySelector("#mobile-menu");
-
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.toggle("translate-x-full");
-          document.body.classList.toggle("overflow-hidden");
-        });
-
-        mobileCloseButton.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-          document.body.classList.remove("overflow-hidden");
-        });
-
-        // Close mobile menu when clicking on a link
-        const mobileLinks = document.querySelectorAll("#mobile-menu a");
-        mobileLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            mobileMenu.classList.add("translate-x-full");
-            document.body.classList.remove("overflow-hidden");
-          });
-        });
-      });
-    </script>
-  </body>
+  <script src="main.js"></script>
+</body>
 </html>
