@@ -111,7 +111,6 @@
       <div class="hero-inner">
         <div class="fade-in">
           <div class="hero-status">
-            <span class="status-dot"></span>
             <span data-i18n="hero_status"
               >Disponible pour des opportunités</span
             >
@@ -265,67 +264,6 @@
               expérience concrète en développement frontend/backend, gestion de
               bases de données SQL/NoSQL et architecture API.
             </p>
-
-            <div class="timeline-header" data-i18n="tl_title">
-              Parcours professionnel
-            </div>
-            <div class="tl-items">
-              <div class="tl-item fade-in">
-                <div class="tl-date">Mars – Juil. 2025</div>
-                <div class="tl-content">
-                  <div class="tl-role" data-i18n="tl1_role">
-                    Développeur Frontend
-                  </div>
-                  <div class="tl-company">Kle Family</div>
-                  <div class="tl-desc" data-i18n="tl1_desc">
-                    Conception et développement du site vitrine de l'entreprise
-                    de A à Z.
-                  </div>
-                </div>
-              </div>
-
-              <div class="tl-item fade-in">
-                <div class="tl-date">Mars – Août 2024</div>
-                <div class="tl-content">
-                  <div class="tl-role" data-i18n="tl2_role">
-                    Développeur Fullstack
-                  </div>
-                  <div class="tl-company">Home and Business Services</div>
-                  <div class="tl-desc" data-i18n="tl2_desc">
-                    Intégration fullstack d'une plateforme de gestion
-                    immobilière.
-                  </div>
-                </div>
-              </div>
-
-              <div class="tl-item fade-in">
-                <div class="tl-date">Oct. 2023 – Jan. 2024</div>
-                <div class="tl-content">
-                  <div class="tl-role" data-i18n="tl3_role">
-                    Stagiaire Développement Web
-                  </div>
-                  <div class="tl-company">Bensoft</div>
-                  <div class="tl-desc" data-i18n="tl3_desc">
-                    Fondamentaux du développement web et conception de bases de
-                    données SQL.
-                  </div>
-                </div>
-              </div>
-
-              <div class="tl-item fade-in">
-                <div class="tl-date">Juil. – Nov. 2021</div>
-                <div class="tl-content">
-                  <div class="tl-role" data-i18n="tl4_role">
-                    Développeur Web & Assistant Marketing
-                  </div>
-                  <div class="tl-company">La Vedette Media</div>
-                  <div class="tl-desc" data-i18n="tl4_desc">
-                    NoSQL, initiation Django, assistance marketing réseaux
-                    sociaux.
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -757,7 +695,7 @@
               </div>
               <div class="proj-links">
                 <a
-                  href="https://github.com/precieuxfassinou/chatbot-api"
+                  href="https://github.com/TON-USERNAME/stella"
                   target="_blank"
                   rel="noopener"
                   class="proj-link"
@@ -864,7 +802,6 @@
             </div>
 
             <div class="avail-card">
-              <div class="avail-dot"></div>
               <div class="avail-text" data-i18n="avail_text">
                 Disponible pour stages et missions freelance
               </div>
@@ -872,25 +809,40 @@
           </div>
 
           <div class="fade-in" style="transition-delay: 0.1s">
-            <div class="contact-form">
+            <form
+              id="contact-form"
+              class="contact-form"
+              action="https://formspree.io/f/xbdqavoq"
+              method="POST"
+              novalidate
+            >
+              <!-- Champ honeypot anti-spam (caché) -->
+              <input type="text" name="_gotcha" style="display: none" />
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="c-name" data-i18n="form_name">Nom complet</label>
                   <input
                     type="text"
                     id="c-name"
+                    name="name"
                     data-i18n="form_name_ph"
                     placeholder="Votre nom"
+                    autocomplete="name"
                   />
+                  <span class="form-error" id="err-name"></span>
                 </div>
                 <div class="form-group">
                   <label for="c-email" data-i18n="form_email">Email</label>
                   <input
                     type="email"
                     id="c-email"
+                    name="email"
                     data-i18n="form_email_ph"
                     placeholder="votre@email.com"
+                    autocomplete="email"
                   />
+                  <span class="form-error" id="err-email"></span>
                 </div>
               </div>
               <div class="form-group">
@@ -898,20 +850,30 @@
                 <input
                   type="text"
                   id="c-subject"
+                  name="subject"
                   data-i18n="form_subject_ph"
                   placeholder="De quoi s'agit-il ?"
                 />
+                <span class="form-error" id="err-subject"></span>
               </div>
               <div class="form-group">
                 <label for="c-message" data-i18n="form_message">Message</label>
                 <textarea
                   id="c-message"
+                  name="message"
                   rows="5"
                   data-i18n="form_message_ph"
                   placeholder="Décrivez votre projet ou opportunité..."
                 ></textarea>
+                <span class="form-error" id="err-message"></span>
               </div>
-              <button class="btn btn-primary" style="align-self: flex-start">
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="form-submit"
+                style="align-self: flex-start"
+              >
                 <svg
                   width="16"
                   height="16"
@@ -925,9 +887,54 @@
                   <line x1="22" y1="2" x2="11" y2="13" />
                   <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
-                <span data-i18n="form_send">Envoyer</span>
+                <span data-i18n="form_send" id="btn-label">Envoyer</span>
               </button>
-            </div>
+
+              <!-- Message de succès -->
+              <div id="form-success" class="form-success" style="display: none">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span data-i18n="form_success"
+                  >Message envoyé ! Je vous réponds dans les plus brefs
+                  délais.</span
+                >
+              </div>
+              <!-- Message d'erreur réseau -->
+              <div
+                id="form-neterror"
+                class="form-neterror"
+                style="display: none"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <span data-i18n="form_error"
+                  >Une erreur est survenue. Réessayez ou écrivez directement à
+                  fassinouandre@gmail.com</span
+                >
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -937,7 +944,7 @@
     <footer>
       <div class="footer-logo">Précieux<span>.</span></div>
       <div class="footer-copy" data-i18n="footer_copy">
-        © 2025 Précieux Fassinou — Tous droits réservés
+        © 2026 Précieux Fassinou — Tous droits réservés
       </div>
     </footer>
 

@@ -89,6 +89,14 @@ const i18n = {
     form_message_ph: "Décrivez votre projet ou opportunité...",
     form_send:       "Envoyer",
 
+    form_success: "Message envoyé ! Je vous réponds dans les plus brefs délais.",
+    form_error:   "Une erreur est survenue. Réessayez ou écrivez à fassinouandre@gmail.com",
+    form_sending: "Envoi en cours...",
+    err_name_req:    "Veuillez entrer votre nom.",
+    err_email_req:   "Veuillez entrer votre adresse email.",
+    err_email_inv:   "Adresse email invalide (ex: nom@domaine.com).",
+    err_subject_req: "Veuillez indiquer un objet.",
+    err_message_req: "Veuillez entrer un message.",
     footer_copy: "© 2026 Précieux Fassinou — Tous droits réservés",
     cv_download: "Télécharger CV",
   },
@@ -175,6 +183,14 @@ const i18n = {
     form_message_ph: "Describe your project or opportunity...",
     form_send:       "Send message",
 
+    form_success: "Message sent! I'll get back to you as soon as possible.",
+    form_error:   "Something went wrong. Please try again or email fassinouandre@gmail.com",
+    form_sending: "Sending...",
+    err_name_req:    "Please enter your name.",
+    err_email_req:   "Please enter your email address.",
+    err_email_inv:   "Invalid email address (e.g. name@domain.com).",
+    err_subject_req: "Please enter a subject.",
+    err_message_req: "Please enter a message.",
     footer_copy: "© 2026 Précieux Fassinou — All rights reserved",
     cv_download: "Download CV",
   }
@@ -248,4 +264,101 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // ─── FORMULAIRE CONTACT ──────────────────────────────────────────────────────
+  const form = document.getElementById('contact-form');
+  if (form) {
+    const fields = {
+      name:    document.getElementById('c-name'),
+      email:   document.getElementById('c-email'),
+      subject: document.getElementById('c-subject'),
+      message: document.getElementById('c-message'),
+    };
+    const errors = {
+      name:    document.getElementById('err-name'),
+      email:   document.getElementById('err-email'),
+      subject: document.getElementById('err-subject'),
+      message: document.getElementById('err-message'),
+    };
+    const submitBtn   = document.getElementById('form-submit');
+    const btnLabel    = document.getElementById('btn-label');
+    const successMsg  = document.getElementById('form-success');
+    const netErrorMsg = document.getElementById('form-neterror');
+
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function clearError(field, errEl) {
+      field.classList.remove('invalid', 'valid');
+      errEl.textContent = '';
+    }
+    function setError(field, errEl, msg) {
+      field.classList.add('invalid');
+      field.classList.remove('valid');
+      errEl.textContent = msg;
+      return false;
+    }
+    function setValid(field, errEl) {
+      field.classList.add('valid');
+      field.classList.remove('invalid');
+      errEl.textContent = '';
+      return true;
+    }
+
+    function validateField(id) {
+      const t   = i18n[currentLang];
+      const f   = fields[id];
+      const e   = errors[id];
+      const val = f.value.trim();
+      if (id === 'name')    return val ? setValid(f, e) : setError(f, e, t.err_name_req);
+      if (id === 'subject') return val ? setValid(f, e) : setError(f, e, t.err_subject_req);
+      if (id === 'message') return val ? setValid(f, e) : setError(f, e, t.err_message_req);
+      if (id === 'email') {
+        if (!val)                return setError(f, e, t.err_email_req);
+        if (!EMAIL_RE.test(val)) return setError(f, e, t.err_email_inv);
+        return setValid(f, e);
+      }
+      return true;
+    }
+
+    // Validation live au blur + correction en temps réel
+    Object.keys(fields).forEach(id => {
+      fields[id].addEventListener('blur', () => validateField(id));
+      fields[id].addEventListener('input', () => {
+        if (fields[id].classList.contains('invalid')) validateField(id);
+      });
+    });
+
+    // Soumission
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const valid = ['name', 'email', 'subject', 'message'].map(validateField).every(Boolean);
+      if (!valid) return;
+
+      submitBtn.disabled = true;
+      btnLabel.textContent = i18n[currentLang].form_sending;
+      successMsg.style.display  = 'none';
+      netErrorMsg.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          Object.keys(fields).forEach(id => clearError(fields[id], errors[id]));
+          successMsg.style.display = 'flex';
+        } else {
+          throw new Error('server');
+        }
+      } catch {
+        netErrorMsg.style.display = 'flex';
+      } finally {
+        submitBtn.disabled = false;
+        btnLabel.textContent = i18n[currentLang].form_send;
+      }
+    });
+  }
+
 });
